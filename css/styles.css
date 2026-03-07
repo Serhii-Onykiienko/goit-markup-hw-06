@@ -180,7 +180,8 @@ button {
   .nav-link.active {
     position: relative;
   }
-  .nav-link.active::after {
+  .nav-link.active::after,
+  .mobile-menu__nav-link.active {
     position: absolute;
     left: 0;
     bottom: -1px;
@@ -194,13 +195,14 @@ button {
 
   .nav-link:hover,
   .nav-link:focus,
-  .nav-link.active {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: 0.02em;
+  .nav-link.active,
+  .mobile-menu__nav-link.active {
     color: #404bbf;
   }
+}
+
+.mobile-menu__nav-link.active {
+  color: #404bbf;
 }
 
 .address {
@@ -427,7 +429,7 @@ button {
 }
 
 .features__item {
-  width: 288px;
+  flex-basis: 100%;
 }
 
 @media only screen and (min-width: 768px) {
@@ -674,9 +676,11 @@ button {
 }
 
 .portfolio__item {
-  background-color: #fff;
-
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16),
+    0 1px 6px 0 rgba(46, 47, 66, 0.08);
+  background: #fff;
 }
 
 @media only screen and (min-width: 768px) {
@@ -687,7 +691,9 @@ button {
 
 @media only screen and (min-width: 1158px) {
   .portfolio__item {
+    box-shadow: none;
     flex-basis: calc((100% - 24px * 2) / 3);
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -750,14 +756,15 @@ button {
   letter-spacing: 0.02em;
   color: #434455;
 }
-
-.portfolio__item:hover,
-.portfolio__item:focus {
-  box-shadow:
-    0 2px 1px 0 rgba(46, 47, 66, 0.08),
-    0 1px 1px 0 rgba(46, 47, 66, 0.16),
-    0 1px 6px 0 rgba(46, 47, 66, 0.08);
-  background-color: #fff;
+@media only screen and (min-width: 768px) {
+  .portfolio__item:hover,
+  .portfolio__item:focus {
+    box-shadow:
+      0 2px 1px 0 rgba(46, 47, 66, 0.08),
+      0 1px 1px 0 rgba(46, 47, 66, 0.16),
+      0 1px 6px 0 rgba(46, 47, 66, 0.08);
+    background-color: #fff;
+  }
 }
 
 /* #endregion */
@@ -1281,6 +1288,10 @@ button {
 
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+.mobile-menu__nav-link.active {
+  color: #404bbf;
+}
+
 .mobile-menu__address {
   margin-bottom: 48px;
   font-style: normal;
@@ -1301,6 +1312,10 @@ button {
   color: #434455;
 
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tel-active {
+  color: #4d5ae5;
 }
 
 .mobile-menu__nav-link:hover,
