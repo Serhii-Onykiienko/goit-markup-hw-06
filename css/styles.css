@@ -16,7 +16,8 @@ body {
   letter-spacing: 0.02em;
 }
 
-body:has(.backdrop.is-open) {
+body:has(.backdrop.is-open),
+body:has(.mobile-menu.is-open) {
   overflow-y: hidden;
 }
 
@@ -1047,13 +1048,13 @@ button {
 }
 
 .modal__button-close {
+  position: absolute;
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
   width: 24px;
   height: 24px;
-  position: absolute;
   top: 24px;
   right: 24px;
 
